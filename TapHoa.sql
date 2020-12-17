@@ -1,0 +1,218 @@
+CREATE DATABASE  IF NOT EXISTS `taphoa2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `taphoa2`;
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+--
+-- Host: localhost    Database: taphoa2
+-- ------------------------------------------------------
+-- Server version	8.0.22
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ct_hoadon`
+--
+
+DROP TABLE IF EXISTS `ct_hoadon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ct_hoadon` (
+  `MaHD` int NOT NULL,
+  `MaSP` varchar(50) NOT NULL,
+  `SoLuong` int DEFAULT NULL,
+  `Gia` int DEFAULT '0',
+  PRIMARY KEY (`MaHD`,`MaSP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ct_hoadon`
+--
+
+LOCK TABLES `ct_hoadon` WRITE;
+/*!40000 ALTER TABLE `ct_hoadon` DISABLE KEYS */;
+INSERT INTO `ct_hoadon` VALUES (23,'1',1,2000),(24,'2',1,3000),(25,'1',1,2000),(26,'1',1,2000),(28,'3',5,25000),(28,'4',7,56000),(29,'1',1,2000),(31,'1',1,2000),(33,'1',5,10000),(33,'2',2,6000),(33,'4',1,8000),(33,'5',7,14000),(34,'1',3,6000),(35,'5',1,2000),(36,'1',1,2000),(36,'2',1,3000),(36,'3',1,5000),(36,'6',2,44000);
+/*!40000 ALTER TABLE `ct_hoadon` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ct_nhaphang`
+--
+
+DROP TABLE IF EXISTS `ct_nhaphang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ct_nhaphang` (
+  `MaDN` int NOT NULL,
+  `MaSP` varchar(50) NOT NULL,
+  `SoLuong` int DEFAULT NULL,
+  `Gia` int DEFAULT NULL,
+  `TongGia` int DEFAULT '0',
+  PRIMARY KEY (`MaDN`,`MaSP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ct_nhaphang`
+--
+
+LOCK TABLES `ct_nhaphang` WRITE;
+/*!40000 ALTER TABLE `ct_nhaphang` DISABLE KEYS */;
+INSERT INTO `ct_nhaphang` VALUES (10,'1',5,1500,7500),(10,'2',5,2500,12500),(18,'2',7,2000,14000),(20,'2',7,3200,22400),(21,'3',5,2500,12500),(22,'5',100,1000,100000),(25,'6',20,19000,380000),(26,'6',20,19000,380000),(29,'1',50,1000,50000),(31,'1',20,1000,20000),(31,'2',57,2100,119700),(31,'3',15,3000,45000),(31,'6',15,15000,225000);
+/*!40000 ALTER TABLE `ct_nhaphang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hoadon`
+--
+
+DROP TABLE IF EXISTS `hoadon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hoadon` (
+  `MaHD` int NOT NULL AUTO_INCREMENT,
+  `NgayBan` date DEFAULT NULL,
+  `TongTien` int DEFAULT '0',
+  `MaKH` varchar(50) DEFAULT NULL,
+  `MaNV` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`MaHD`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+LOCK TABLES `hoadon` WRITE;
+/*!40000 ALTER TABLE `hoadon` DISABLE KEYS */;
+INSERT INTO `hoadon` VALUES (1,'2020-02-03',15000,NULL,NULL),(24,'2020-11-29',2580,'3','0'),(25,'2020-11-29',2000,'3','0'),(26,'2020-11-29',1430,'3','0'),(27,'2020-11-29',0,'0','0'),(28,'2020-11-29',81000,'0','4'),(29,'2020-11-29',2000,'3','4'),(30,'2020-11-29',0,'3','4'),(31,'2020-11-29',1880,'3','3'),(32,'2020-11-29',0,'0','3'),(33,'2020-11-29',37940,'3','3'),(34,'2020-11-29',0,'0','3'),(35,'2020-11-29',0,'0','3'),(36,'2020-11-30',52860,'3','3'),(37,'2020-12-17',0,'0','3');
+/*!40000 ALTER TABLE `hoadon` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `khachhang`
+--
+
+DROP TABLE IF EXISTS `khachhang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `khachhang` (
+  `MaKH` int NOT NULL AUTO_INCREMENT,
+  `HoTen` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `NgaySinh` date DEFAULT NULL,
+  `SDT` varchar(15) DEFAULT NULL,
+  `DiemThuong` int DEFAULT '0',
+  PRIMARY KEY (`MaKH`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `khachhang`
+--
+
+LOCK TABLES `khachhang` WRITE;
+/*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
+INSERT INTO `khachhang` VALUES (1,'Linh','2000-05-03','0000',0),(2,'Long','1998-06-01','0110',0),(3,'Ã‚n','1997-03-04','1111',1620),(6,'Quang','1997-07-12','11100020',0),(7,'Dung','2008-11-04','23123',0);
+/*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `kho`
+--
+
+DROP TABLE IF EXISTS `kho`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `kho` (
+  `MaSP` varchar(50) NOT NULL,
+  `TenSP` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `SoLuong` int DEFAULT '0',
+  `GiaBan` int DEFAULT '0',
+  PRIMARY KEY (`MaSP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kho`
+--
+
+LOCK TABLES `kho` WRITE;
+/*!40000 ALTER TABLE `kho` DISABLE KEYS */;
+INSERT INTO `kho` VALUES ('1','BÃºt chÃ¬',49,2000),('2','BÃºt má»±c',16,3000),('3','Vá»Ÿ 100 trang',21,5000),('4','Vá»Ÿ 200 trang',30,8000),('5','Káº¹o',24,2000),('6','káº¹o play more',18,22000);
+/*!40000 ALTER TABLE `kho` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nhanvien`
+--
+
+DROP TABLE IF EXISTS `nhanvien`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nhanvien` (
+  `MaNV` int NOT NULL AUTO_INCREMENT,
+  `MatKhau` varchar(50) DEFAULT NULL,
+  `HoTen` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `NgaySinh` date DEFAULT NULL,
+  `DiaChi` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `SDT` varchar(15) DEFAULT NULL,
+  `Anh` mediumblob,
+  `QuanLy` int DEFAULT '0',
+  `TaiKhoan` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`MaNV`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhanvien`
+--
+
+LOCK TABLES `nhanvien` WRITE;
+/*!40000 ALTER TABLE `nhanvien` DISABLE KEYS */;
+INSERT INTO `nhanvien` VALUES (3,'123','Linh','2000-01-28','PhÃº Lá»£i, thÃ nh phá»‘ Thá»§ Dáº§u Má»™t, BÃ¬nh DÆ°Æ¡ng','0001123',_binary '‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0d\0\0\0Z\0\0\0Áðd\Þ\0\0ùIDATx^\íœ\éz\Û6E£}§$R›%;‹Ó¤Ù¦I\Ó÷²^\êˆ	:®jŠmƒ\áý\î\Ï!€ƒÁ` \'OjÔ¨Q£F²\Ðjv\Å^g\"zsq\Ø_ü`¿7;\í\Ø\Ø\Ã~ÿK¡\ÓŠ£þRœŽ®\Äù\ä\ÅF£K±ßŠ¿ ±¤mcØ‹\Å\Åô¸‰oÄ‹\äq»øS\Ü9\Ü.¾ˆ\Égq1{#öº‘h[­(Rck]­þ\ÎI\äYª¶ÕŠß´Ž?Š®	˜;Iô›È¢Ã”\ãÁFœŸ‰›ø“ˆü\åò»ˆ|¿;mO#M½N$n’…Y\\\Ë\Ùo5\Z¬Dé°—ˆ“á…˜L_‰,\Ò\Ë\Õw‘¯0h»\Õ\é\Åöš¶ˆi³I\î)]P±h¥c>y.\Þ^ž‹\é\ïb£\Ñ\í7ÁaÐ‰™óþ*²¸:\í‘h¥ƒ`b1}-®\ç\Ä\Ë\å_\âfþI¬ˆ/‹£—\"³\0Ÿ\Õl¶E+w\ZO84º±\rw\"¦\Ï\æWjDûM@\È \"ƒ›«\Õwq<X‰FS´\Òù\Ðlv\Än{$\âÑ˜_ì•„¯ö› Àˆ™P©\Ý\ê‰V®(hÍ_„¯V.\àePc9+ú\Âim>~&\Ò›€•DL¨Áöo%| \Zn\ÅC/ûø\ËJœ.jpú³>€Ÿ¢+ˆ€Pƒ \ÓJø\0ž+3V\ê\æ­D \ZB\r¶|+\ái\ìÎ©€¾üz\Æ{‚{¦;5=+\Ým6–{\Ä\ÉNpe\árùMÌŒU<Ž{0¸I˜ò\åÎ¬\ÚXÿ‹\àµ‰?ˆ(Pžƒo6[\"½°­DX\Ïß‹¨Á•„•ðŽ\åô²[~\Ûj,7\Î:5{•\ÌYzaÿµA ‰^‹¨Á9\ÑJø\0‡gzY\Íß‹V\"L\ÇW\"jL\ÇOE+\á\Ñh\'\ÒhV\"o:¨½­„\Ì&\×\"½p\åa%‚\0~\n5–³w¢•ðZ.{±—Ža?Q#;\âú¼ƒ\áX\ãFsôhå‚€›ü\Ë\" ¿\ÆJƒO7\r\ØX‹\é+5\âÉ‹¸\×\ëú¬dú:	ô\Úb5\'¢\Ætt9-\Çõ\â\Ô\é…­D \è5Ê»w¡‡^J\×ñ§u–\Ï\êvF¢•ðng\"\Ò÷’V\"\àAP£¼<™\Ï*\ëZ¤tpM\Z\Ä\Ö\\ŽZ¹¢ 5Z¦—\Ùøé¬œsB\éõ£,t „£‰•+\nZ\Û&_Dz	8(m·\â&ù,ge\Ýó£­´R@´L1S\Ù)\ÆR‘ª\äG }\Ë\rG—³·¢–l\í”¡\Øù¿?-ø¾ez±rÁC	å¨w¾bnlE\ËA\æÝÁ­\Ò:?·\åf\Êh\ÙJ\r6uÔ›G\×bQÿ’~G/DZ›Mž‰V*h¸qönùU¤,\Í\Ê\Ý®\'Üš¬ò®B¸db\"6ûa)\æ÷5”II±\â­\Î\ß.)(\ÉfFP6’¿¾´\Ùh‰Dj´P^öõQ€˜ž™Åƒ“v{\ÐÎ— ´\èP\r¿ŸY£þJ´r•Á\í*\Ðü7\Õn\Ñ\Z—©•]€€¬¹[ŠT\ÌX\Ô\ç\ä÷w£X‘›k,ÒŠV¢’¨u\Öó\â9Æºˆo.~c\Ë\ÍgOÒ¯ˆ×¬D\Åp8T\ï¨Gk5;\"_í’¯b\Å<!¨[ÿ\É|±rÿ‚R¾\"\Î\Â|V®@1aòÀ’Å˜vp\Ü\É6‡ô=‡óV³\'Zé orŸýrô±rw!‰^‰´@¼Vf\Ñø=‚%¶\"Š±|(\å\èuÆ½|û L³Mn¶\éó\áý\ã\Ì}Ë¼\à	x–\á¼y©å¾€`ó8¼a\Ü\Ä7?¦§K’1®H\ì7<òu³.¹I\Ìï§Ž²„bj,·z\ÏK1–\Òx\ä\Å\'ƒ¸Žß‹¨Á±™\ÙD- /c\Ñ\Ë0;œ§=’Æ¡/–m±Y\ìš¿p‹\Ê >%Ž®\Åó/)Ž­#ž\\‹\î\å$¦Ã¬\çÿHÁ\É(±CñÛ’2fƒGrXù\ã©SÁ¬¡z\äò•‘0*F\ÈhóŸ¼Wª\îm t—[þ,¨/\Ð#½»‡ª\Ã,Û–‘\Û/½\Ã]tø7`\×\ã&‹\îþ§==\Ò;#™Mž‹Œ\Ñ2rLV\âùW÷\Ýd\Ñ=\Î†aTnR–ø?#ü\\g’Ò…Ô±tZ‘³›ýò¡Á¨!\á±;~4ò<¿hÎ½YÁq†U\Ìh\Ý\04òl,÷OsXÿ~ÿ\Î\â>Á¹\Â\rt•­\\`u·H›\âžòB²Á\È\Ñ’\èe\âe1f\Å=üEJ\Êò\Â\ËûDV‡³\×k\ÏüiÈ£`7\á\à`\îœrY,–š\Ì\ÃnNºcü@\íˆø\ÑM­\ÄIø\×_¤–¢•žÿ-\Ç\r\çª÷·—ž_Áº[,—æ¤†«A÷o:.\âÏ¢\Õÿ$¸µ \Õ\æYw‘Ü¦\Ün´ºL÷D´¶¶¸\î\Õ\Ó\í	\\A\î5-h¬\Z5jÔ¨Q£F\rÿ\0q\æ¿J\Í\ì?\ë\0\0\0\0IEND®B`‚',1,'NV3'),(4,'222','Long','2000-01-01','PhÃº Lá»£i','110011',_binary '‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0d\0\0\0Z\0\0\0Áðd\Þ\0\0ùIDATx^\íœ\éz\Û6E£}§$R›%;‹Ó¤Ù¦I\Ó÷²^\êˆ	:®jŠmƒ\áý\î\Ï!€ƒÁ` \'OjÔ¨Q£F²\Ðjv\Å^g\"zsq\Ø_ü`¿7;\í\Ø\Ø\Ã~ÿK¡\ÓŠ£þRœŽ®\Äù\ä\ÅF£K±ßŠ¿ ±¤mcØ‹\Å\Åô¸‰oÄ‹\äq»øS\Ü9\Ü.¾ˆ\Égq1{#öº‘h[­(Rck]­þ\ÎI\äYª¶ÕŠß´Ž?Š®	˜;Iô›È¢Ã”\ãÁFœŸ‰›ø“ˆü\åò»ˆ|¿;mO#M½N$n’…Y\\\Ë\Ùo5\Z¬Dé°—ˆ“á…˜L_‰,\Ò\Ë\Õw‘¯0h»\Õ\é\Åöš¶ˆi³I\î)]P±h¥c>y.\Þ^ž‹\é\ïb£\Ñ\í7ÁaÐ‰™óþ*²¸:\í‘h¥ƒ`b1}-®\ç\Ä\Ë\å_\âfþI¬ˆ/‹£—\"³\0Ÿ\Õl¶E+w\ZO84º±\rw\"¦\Ï\æWjDûM@\È \"ƒ›«\Õwq<X‰FS´\Òù\Ðlv\Än{$\âÑ˜_ì•„¯ö› Àˆ™P©\Ý\ê‰V®(hÍ_„¯V.\àePc9+ú\Âim>~&\Ò›€•DL¨Áöo%| \Zn\ÅC/ûø\ËJœ.jpú³>€Ÿ¢+ˆ€Pƒ \ÓJø\0ž+3V\ê\æ­D \ZB\r¶|+\ái\ìÎ©€¾üz\Æ{‚{¦;5=+\Ým6–{\Ä\ÉNpe\árùMÌŒU<Ž{0¸I˜ò\åÎ¬\ÚXÿ‹\àµ‰?ˆ(Pžƒo6[\"½°­DX\Ïß‹¨Á•„•ðŽ\åô²[~\Ûj,7\Î:5{•\ÌYzaÿµA ‰^‹¨Á9\ÑJø\0‡gzY\Íß‹V\"L\ÇW\"jL\ÇOE+\á\Ñh\'\ÒhV\"o:¨½­„\Ì&\×\"½p\åa%‚\0~\n5–³w¢•ðZ.{±—Ža?Q#;\âú¼ƒ\áX\ãFsôhå‚€›ü\Ë\" ¿\ÆJƒO7\r\ØX‹\é+5\âÉ‹¸\×\ëú¬dú:	ô\Úb5\'¢\Ætt9-\Çõ\â\Ô\é…­D \è5Ê»w¡‡^J\×ñ§u–\Ï\êvF¢•ðng\"\Ò÷’V\"\àAP£¼<™\Ï*\ëZ¤tpM\Z\Ä\Ö\\ŽZ¹¢ 5Z¦—\Ùøé¬œsB\éõ£,t „£‰•+\nZ\Û&_Dz	8(m·\â&ù,ge\Ýó£­´R@´L1S\Ù)\ÆR‘ª\äG }\Ë\rG—³·¢–l\í”¡\Øù¿?-ø¾ez±rÁC	å¨w¾bnlE\ËA\æÝÁ­\Ò:?·\åf\Êh\ÙJ\r6uÔ›G\×bQÿ’~G/DZ›Mž‰V*h¸qönùU¤,\Í\Ê\Ý®\'Üš¬ò®B¸db\"6ûa)\æ÷5”II±\â­\Î\ß.)(\ÉfFP6’¿¾´\Ùh‰Dj´P^öõQ€˜ž™Åƒ“v{\ÐÎ— ´\èP\r¿ŸY£þJ´r•Á\í*\Ðü7\Õn\Ñ\Z—©•]€€¬¹[ŠT\ÌX\Ô\ç\ä÷w£X‘›k,ÒŠV¢’¨u\Öó\â9Æºˆo.~c\Ë\ÍgOÒ¯ˆ×¬D\Åp8T\ï¨Gk5;\"_í’¯b\Å<!¨[ÿ\É|±rÿ‚R¾\"\Î\Â|V®@1aòÀ’Å˜vp\Ü\É6‡ô=‡óV³\'Zé orŸýrô±rw!‰^‰´@¼Vf\Ñø=‚%¶\"Š±|(\å\èuÆ½|û L³Mn¶\éó\áý\ã\Ì}Ë¼\à	x–\á¼y©å¾€`ó8¼a\Ü\Ä7?¦§K’1®H\ì7<òu³.¹I\Ìï§Ž²„bj,·z\ÏK1–\Òx\ä\Å\'ƒ¸Žß‹¨Á±™\ÙD- /c\Ñ\Ë0;œ§=’Æ¡/–m±Y\ìš¿p‹\Ê >%Ž®\Åó/)Ž­#ž\\‹\î\å$¦Ã¬\çÿHÁ\É(±CñÛ’2fƒGrXù\ã©SÁ¬¡z\äò•‘0*F\ÈhóŸ¼Wª\îm t—[þ,¨/\Ð#½»‡ª\Ã,Û–‘\Û/½\Ã]tø7`\×\ã&‹\îþ§==\Ò;#™Mž‹Œ\Ñ2rLV\âùW÷\Ýd\Ñ=\Î†aTnR–ø?#ü\\g’Ò…Ô±tZ‘³›ýò¡Á¨!\á±;~4ò<¿hÎ½YÁq†U\Ìh\Ý\04òl,÷OsXÿ~ÿ\Î\â>Á¹\Â\rt•­\\`u·H›\âžòB²Á\È\Ñ’\èe\âe1f\Å=üEJ\Êò\Â\ËûDV‡³\×k\ÏüiÈ£`7\á\à`\îœrY,–š\Ì\ÃnNºcü@\íˆø\ÑM­\ÄIø\×_¤–¢•žÿ-\Ç\r\çª÷·—ž_Áº[,—æ¤†«A÷o:.\âÏ¢\Õÿ$¸µ \Õ\æYw‘Ü¦\Ün´ºL÷D´¶¶¸\î\Õ\Ó\í	\\A\î5-h¬\Z5jÔ¨Q£F\rÿ\0q\æ¿J\Í\ì?\ë\0\0\0\0IEND®B`‚',0,'NV4'),(5,'001100','Ã‚n LÃ½','2000-11-03','','001100',NULL,0,'NV5');
+/*!40000 ALTER TABLE `nhanvien` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nhaphang`
+--
+
+DROP TABLE IF EXISTS `nhaphang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nhaphang` (
+  `MaDN` int NOT NULL AUTO_INCREMENT,
+  `NgayNhap` date DEFAULT NULL,
+  `TongGia` int DEFAULT '0',
+  PRIMARY KEY (`MaDN`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nhaphang`
+--
+
+LOCK TABLES `nhaphang` WRITE;
+/*!40000 ALTER TABLE `nhaphang` DISABLE KEYS */;
+INSERT INTO `nhaphang` VALUES (10,'2020-11-28',50000),(18,'2020-11-28',50000),(19,'2020-11-28',50000),(20,'2020-11-28',50000),(21,'2020-11-28',50000),(22,'2020-11-29',50000),(23,'2020-11-29',50000),(24,'2020-11-29',50000),(25,'2020-11-29',50000),(26,'2020-11-29',50000),(27,'2020-11-29',50000),(28,'2020-11-29',50000),(29,'2020-11-29',50000),(30,'2020-11-29',0),(31,'2020-11-30',0),(32,'2020-12-17',0);
+/*!40000 ALTER TABLE `nhaphang` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-12-17 11:26:47
